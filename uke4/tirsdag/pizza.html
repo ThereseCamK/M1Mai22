@@ -12,7 +12,8 @@
 
     <script>
         //model
-        let bunn = ''
+        let bunn = '';
+        let disabledButton = 'disabled';
 
         //view
         showContent()
@@ -22,7 +23,9 @@
             Bunn: <br />
             <input  type="radio" name="bunn" onchange="info('tykkbunn')" />Tykk
             <input  type="radio" name="bunn" onchange="info('tynnbunn')" />Tynn <br /><br />
-                <div id="selctedtext"></div>`;
+            <div id="selctedtext">
+                </div>`;
+
             document.getElementById('app').innerHTML = html;
         }
 
