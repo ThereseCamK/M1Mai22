@@ -47,33 +47,54 @@
         function view(){
             let html = `
             <div class="number resultBox">${display}</div>
-            <div class=" number firstInRow" onclick="addCharacter(7)">7</div>
-    <div class="number" onclick="addCharacter(8)">8</div>
-    <div class="number" onclick="addCharacter(9)">9</div>
-    <div class="number" onclick="addCharacter('÷')">÷</div>
 
-    <div class="number firstInRow" onclick="addCharacter(4)">4</div>
-    <div class="number" onclick="addCharacter(5)">5</div>
-    <div  class="number" onclick="addCharacter(6)">6</div>
-    <div class="number" onclick="addCharacter('×')">×</div>
 
-    <div class="number firstInRow" onclick="addCharacter(1)">1</div>
-    <div class="number"  onclick="addCharacter(2)">2</div>
-    <div class="number" onclick="addCharacter(3)">3</div>
-    <div class="number" onclick="addCharacter('-')">-</div>
+            ${divWithNumber('firstInRow', 'addCharacter', 7)}
+            ${divWithNumber(' ', 'addCharacter', 8)}
+            ${divWithNumber(' ', 'addCharacter', 9)}
+            ${divWithNumber(' ', 'addCharacter', '÷')}
+           
 
-    <div class="number firstInRow" onclick="addCharacter(0)">0</div>
-    <div class="number" onclick="clearResult();">C</div>
-    <div class="number" onclick="calculate()">=</div>
-    <div class="number" onclick="addCharacter('+')">+</div>
+            ${divWithNumber('firstInRow', 'addCharacter', 4)}
+            ${divWithNumber(' ', 'addCharacter', 5)}
+            ${divWithNumber(' ', 'addCharacter', 6)}
+            ${divWithNumber(' ', 'addCharacter', '×')}
+            
+
+            ${divWithNumber('firstInRow', 'addCharacter', 1)}
+            ${divWithNumber(' ', 'addCharacter', 2)}
+            ${divWithNumber(' ', 'addCharacter', 3)}
+            ${divWithNumber(' ', 'addCharacter', '-')}
+
+            ${divWithNumber('firstInRow', 'addCharacter', 0)}
+            ${divWithNumber(' ', 'clearResult', 'C')}
+            ${divWithNumber(' ', 'calculate', '=')}
+            ${divWithNumber(' ', 'addCharacter', '+')}
+
+   
             `
         document.getElementById('app').innerHTML = html;
+        }
+
+        function divWithNumber(firstClass, funcName, chara){
+            return `<div class="number ${firstClass}" onclick="${funcName}('${chara}')">${chara}</div>`
         }
 
         //controller
 
         function addCharacter(inputValue){
             display += inputValue;
+            view();
+        }
+        function calculate(){
+            var calculation = display.replace('×', '*').replace('÷', '/');
+            display = eval(calculation);
+            view();
+
+        }
+        
+        function clearResult() {
+            display = '';
             view();
         }
 
