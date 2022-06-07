@@ -1,4 +1,5 @@
-let test = ''
+let test = '';
+
 function isThisAEmail(inputValue){
     let indexofAt = inputValue.indexOf('@');
     let indexOfFirstDot = inputValue.indexOf('.');
@@ -8,6 +9,7 @@ function isThisAEmail(inputValue){
         if(inputValue.includes('@') && !inputValue.includes(' ')){
             if(indexOfFirstDot < indexofAt ){
                return test=  'true'
+            //    return true;
             }
             return test=  'true';
         } return test=  'true'
