@@ -69,12 +69,41 @@
 
         //Controller
         function addPersonToList(){
-            model.persons.push(
+            let isOnTheList = false;
+            
+        // model.persons.forEach(p => {
+        //     if(p.name == model.inputs.name) isOnTheList = true;
+        // });
+        for(let i = 0; i< model.persons.length; i++){
+            if(model.persons[i].name == model.inputs.name){
+                isOnTheList = true;
+            }
+            
+        }
+            if(!isOnTheList) {
+                model.persons.push(
                     {
                         name: model.inputs.name,
                         alder : model.inputs.alder,
                         bosted: model.inputs.bosted
                     });
+            }
+        //   for(let i = 0; i < model.persons.length;i++){
+        //     if(!model.persons[i].name.includes(model.inputs.name)){
+        //         model.persons.push(
+        //             {
+        //                 name: model.inputs.name,
+        //                 alder : model.inputs.alder,
+        //                 bosted: model.inputs.bosted
+        //             });
+        //     }
+        //   }
+            // model.persons.push(
+            //         {
+            //             name: model.inputs.name,
+            //             alder : model.inputs.alder,
+            //             bosted: model.inputs.bosted
+            //         });
             
             // model.persons.push(model.inputs)
         //  for(let i = 0; i < model.persons.length; i++){
